@@ -1,0 +1,4 @@
+OSBE_CONFIG_FILE([Makefile])
+OSBE_CXX_DEF([ClusterControl], [ClusterControlStub.mk])
+OSBE_CXX_DEF([ChannelController], [ChannelControllerStubs.mk])
+OSBE_CXX_DEF([ChannelControllerExe], [ChannelController.mk])

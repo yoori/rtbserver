@@ -1,0 +1,80 @@
+/* 
+ * This file is part of the RTBServer distribution (https://github.com/yoori/rtbserver).
+ * RTBServer is DSP server that allow to bid (see RTB auction) targeted ad
+ * via RTB protocols (OpenRTB, Google AdExchange, Yandex RTB)
+ *
+ * Copyright (c) 2014 Yuri Kuznecov <yuri.kuznecov@gmail.com>.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+
+module AdServer
+{
+  module ChannelSearchSvcs
+  {
+
+    struct ChannelSearchResult
+    {
+      unsigned long long channel_id;
+      unsigned long reuse;
+    };
+
+    typedef sequence<ChannelSearchResult> ChannelSearchResultSeq;
+
+    // match structs
+    typedef sequence<unsigned long long > CCGIdSeq;
+
+    typedef sequence<unsigned long long > TrChIdSeq;
+
+    struct ChannelMatchInfo
+    {
+      unsigned long long channel_id;
+      TrChIdSeq triggers;
+      CCGIdSeq ccgs;
+    };
+
+    typedef sequence<ChannelMatchInfo> ChannelMatchSeq;
+
+    struct MatchInfo
+    {
+      ChannelMatchSeq channels;
+    };
+
+    struct WMatchInfo
+    {
+      ChannelMatchSeq channels;
+    };
+
+    interface ChannelSearch
+    {
+      exception ImplementationException
+      {
+        string description;
+      };
+
+      ChannelSearchResultSeq search(in string phrase)
+        raises(ImplementationException);
+
+      ChannelSearchResultSeq wsearch(in wstring phrase)
+        raises(ImplementationException);
+
+      MatchInfo match(in string url, in string phrase, in long channels_count)
+        raises(ImplementationException);
+
+      WMatchInfo wmatch(in wstring url, in wstring phrase, in long channels_count)
+        raises(ImplementationException);
+    };
+
+  }; // module ChannelSearchSvcs
+}; // module AdServer

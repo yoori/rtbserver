@@ -1,0 +1,8 @@
+@profilemap_deps@
+
+sources := \
+  ProfileMapFactory.cpp
+
+target := ProfileMap
+
+@profilemap_post@

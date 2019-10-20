@@ -1,0 +1,8 @@
+@channelcontroller_deps@
+sources := ChannelSessionFactory.cpp ChannelLoadSessionFactory.cpp ChannelServerSessionFactory.cpp
+includes := .
+
+corba_stub_idls := ChannelManagerController.idl
+corba_includes := .
+corba_idl_includes := .
+@channelcontroller_post@

@@ -1,0 +1,7 @@
+@nulladfrontend_deps@
+
+includes := Frontends/Modules
+
+sources := NullAdFrontend.cpp
+
+@nulladfrontend_post@

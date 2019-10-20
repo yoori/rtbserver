@@ -1,0 +1,82 @@
+/* 
+ * This file is part of the RTBServer distribution (https://github.com/yoori/rtbserver).
+ * RTBServer is DSP server that allow to bid (see RTB auction) targeted ad
+ * via RTB protocols (OpenRTB, Google AdExchange, Yandex RTB)
+ *
+ * Copyright (c) 2014 Yuri Kuznecov <yuri.kuznecov@gmail.com>.
+ * 
+ * This program is free software: you can redistribute it and/or modify  
+ * it under the terms of the GNU General Public License as published by  
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but 
+ * WITHOUT ANY WARRANTY; without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License 
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef CAMPAIGNSVCS_CAMPAIGNSERVER_BILLSTATINFO_IDL
+#define CAMPAIGNSVCS_CAMPAIGNSERVER_BILLSTATINFO_IDL
+
+#include <Commons/CorbaTypes.idl>
+
+module AdServer
+{
+module CampaignSvcs_v360
+{
+  struct DayAmount
+  {
+    CORBACommons::TimestampInfo day;
+    CORBACommons::DecimalInfo amount;
+  };
+
+  typedef sequence<DayAmount> DayAmountSeq;
+
+  struct AmountDistributionInfo
+  {
+    DayAmount prev_days_amount; // .amount = sum amount at interval (-inf, .day]
+    DayAmountSeq day_amounts;
+  };
+
+  typedef sequence<AmountDistributionInfo> AmountDistributionSeq;
+
+  struct AccountAmountDistributionInfo
+  {
+    unsigned long account_id;
+    AmountDistributionInfo amount_distribution;
+  };
+
+  typedef sequence<AccountAmountDistributionInfo>
+    AccountAmountDistributionSeq;
+
+  struct CampaignAmountDistributionInfo
+  {
+    unsigned long campaign_id;
+    AmountDistributionInfo amount_distribution;
+  };
+
+  typedef sequence<CampaignAmountDistributionInfo>
+    CampaignAmountDistributionSeq;
+
+  struct CCGAmountDistributionInfo
+  {
+    unsigned long ccg_id;
+    AmountDistributionInfo amount_distribution;
+  };
+
+  typedef sequence<CCGAmountDistributionInfo>
+    CCGAmountDistributionSeq;
+
+  struct BillStatInfo
+  {
+    AccountAmountDistributionSeq accounts;
+    CampaignAmountDistributionSeq campaigns;
+    CCGAmountDistributionSeq ccgs;
+  };
+};
+};
+
+#endif /*CAMPAIGNSVCS_CAMPAIGNSERVER_BILLSTATINFO_IDL*/

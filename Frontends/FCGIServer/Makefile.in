@@ -1,0 +1,9 @@
+@fcgiserver_deps@
+
+includes := Frontends/Modules
+
+sources := FCGIServer.cpp Acceptor.cpp FrontendsPool.cpp
+
+target := FCGIServer
+
+@fcgiserver_post@

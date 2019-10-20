@@ -1,0 +1,9 @@
+@biddingfrontend_deps@
+
+includes := Frontends/Modules
+
+sources := RequestInfoFiller.cpp \
+  BiddingFrontend.cpp \
+  BiddingFrontendStat.cpp
+
+@biddingfrontend_post@

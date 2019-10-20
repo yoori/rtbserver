@@ -1,0 +1,4 @@
+name="ChannelServer"
+so_files=ChannelServer
+osbe_cxx_feature_dep CORBA
+osbe_cxx_dep ChannelCommons

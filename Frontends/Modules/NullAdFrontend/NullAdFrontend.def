@@ -1,0 +1,14 @@
+name="NullAdFrontend"
+so_files=NullAdFrontend
+
+osbe_cxx_dep ExceptionHandling
+osbe_cxx_dep Generics
+osbe_cxx_dep Stream
+osbe_cxx_dep http
+osbe_cxx_dep ProcessingTemplates
+osbe_cxx_dep PassbackTemplate
+
+osbe_cxx_dep Commons
+osbe_cxx_dep CampaignServerStubs
+osbe_cxx_dep FCGI
+osbe_cxx_dep FeConfig

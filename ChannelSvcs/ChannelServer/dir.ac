@@ -1,0 +1,6 @@
+
+OSBE_CONFIG_FILE([Makefile])
+OSBE_CXX_DEF([ChannelContainer], [ChannelContainer.mk])
+OSBE_CXX_DEF([ChannelServerSkel], [ChannelServerSkel.mk])
+OSBE_CXX_DEF([ChannelServer], [ChannelServerStubs.mk])
+OSBE_CXX_DEF([ChannelServerExe], [ChannelServer.mk])

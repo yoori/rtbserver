@@ -1,0 +1,17 @@
+OSBE_CONFIG_FILE([Makefile])
+
+# 3.2.0
+OSBE_CXX_DEF([CampaignServer_v320], [CampaignServer_v320.mk])
+OSBE_CXX_DEF([CampaignServerStubs_v320], [CampaignServerStubs_v320.mk])
+
+# 3.3.0
+OSBE_CXX_DEF([CampaignServer_v331], [CampaignServer_v331.mk])
+OSBE_CXX_DEF([CampaignServerStubs_v331], [CampaignServerStubs_v331.mk])
+
+# 3.4.0
+OSBE_CXX_DEF([CampaignServer_v340], [CampaignServer_v340.mk])
+OSBE_CXX_DEF([CampaignServerStubs_v340], [CampaignServerStubs_v340.mk])
+
+# 3.5.0
+OSBE_CXX_DEF([CampaignServer_v350], [CampaignServer_v350.mk])
+OSBE_CXX_DEF([CampaignServerStubs_v350], [CampaignServerStubs_v350.mk])
